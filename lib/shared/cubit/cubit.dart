@@ -37,12 +37,7 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
         icon: Icon(
           Icons.offline_share,
         ),
-        label: 'Cart'),
-    BottomNavigationBarItem(
-        icon: Icon(
-          Icons.person,
-        ),
-        label: 'Profile'),
+        label: 'Cart')
   ];
   void changeIndex(int index) {
     screenIndex = index;
