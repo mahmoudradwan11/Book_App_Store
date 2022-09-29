@@ -5,7 +5,6 @@ import 'package:book_app_store/models/Sports-model/Sports_model.dart';
 import 'package:book_app_store/models/User/user.dart';
 import 'package:book_app_store/modules/cart/cart.dart';
 import 'package:book_app_store/modules/cate/cateogry.dart';
-import 'package:book_app_store/modules/profile/profile.dart';
 import 'package:book_app_store/shared/components/end_points.dart';
 import 'package:book_app_store/shared/cubit/states.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -26,9 +25,8 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
   List<Widget> screens = [
     const Category(),
     const CartBooks(),
-    const Profile(),
   ];
-  List<String> titles = ['Category', 'Cart', 'Profile'];
+  List<String> titles = ['Category', 'Cart'];
   List<BottomNavigationBarItem> items = const [
     BottomNavigationBarItem(
         icon: Icon(
