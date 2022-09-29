@@ -46,7 +46,7 @@ class CartBooks extends StatelessWidget {
         children: [
           Container(
             width: 120,
-            height: 120,
+            height: 150,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
@@ -60,13 +60,13 @@ class CartBooks extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              height: 150,
+              height: 180,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     model['name'],
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                   const SizedBox(
                     height: 5,

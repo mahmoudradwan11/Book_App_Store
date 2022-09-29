@@ -65,7 +65,9 @@ class MangaBooks extends StatelessWidget {
                       children: [
                         Text(
                           '${model.bookName}',
-                          style: Theme.of(context).textTheme.bodyText1,
+                          style:const TextStyle(fontFamily: 'Jannah',fontSize: 11,fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
                         Spacer(),
                         IconButton(onPressed:(){
