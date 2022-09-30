@@ -19,6 +19,12 @@ class CreateMangaBookErrorState extends BookStoreStates{}
 class GetMangaBookLoadingState extends BookStoreStates{}
 class GetMangaBookState extends BookStoreStates{}
 class GetMangaBookErrorState extends BookStoreStates{}
+class CreateProgrammingBookLoadingState extends BookStoreStates{}
+class CreateProgrammingBookState extends BookStoreStates{}
+class CreateProgrammingBookErrorState extends BookStoreStates{}
+class GetProgrammingLoadingState extends BookStoreStates{}
+class GetProgrammingBookState extends BookStoreStates{}
+class GetProgrammingBookErrorState extends BookStoreStates{}
 class CreateHealthBookLoadingState extends BookStoreStates{}
 class CreateHealthBookState extends BookStoreStates{}
 class CreateHealthBookErrorState extends BookStoreStates{}

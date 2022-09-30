@@ -1,5 +1,6 @@
 import 'package:book_app_store/models/Health_model/health_model.dart';
 import 'package:book_app_store/models/Manga_model/manga_model.dart';
+import 'package:book_app_store/models/Programing_model/Programing_model.dart';
 import 'package:book_app_store/models/Science-model/science_model.dart';
 import 'package:book_app_store/models/Sports-model/Sports_model.dart';
 import 'package:book_app_store/models/User/user.dart';
@@ -22,6 +23,7 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
   List<HealthModel> healthBooks = [];
   List<ScienceModel> scienceBooks = [];
   List<SportsModel> sportsBooks = [];
+  List<ProgrammingModel> programmingBooks = [];
   List<Widget> screens = [
     const Category(),
     const CartBooks(),
@@ -154,6 +156,35 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
       emit(CreateMangaBookErrorState());
     });
   }
+  void createProgrammingBook({
+    required String bookName,
+    required String description,
+    String? link,
+    required String author,
+    required String year,
+    required String rite,
+    required String price,
+    String? bookImage,
+  }) {
+    emit(CreateProgrammingBookLoadingState());
+    ProgrammingModel model = ProgrammingModel(
+        bookName: bookName,
+        bookImage: bookImage ?? '',
+        author: author,
+        link: link ?? '',
+        description: description,
+        year: year,
+        rite: rite,
+        price: price);
+    FirebaseFirestore.instance
+        .collection('ProgrammingBooks')
+        .add(model.toMap())
+        .then((value) {
+      emit(CreateProgrammingBookState());
+    }).catchError((error) {
+      emit(CreateProgrammingBookErrorState());
+    });
+  }
 
   void createHealthBook({
     required String bookName,
@@ -225,7 +256,7 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
     required String price,
     String? bookImage,
   }) {
-    emit(CreateHealthBookLoadingState());
+    emit(CreateSportsBookLoadingState());
     SportsModel model = SportsModel(
         bookName: bookName,
         bookImage: bookImage ?? '',
@@ -239,9 +270,9 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
         .collection('SportsBooks')
         .add(model.toMap())
         .then((value) {
-      emit(CreateHealthBookState());
+      emit(CreateSportsBookState());
     }).catchError((error) {
-      emit(CreateHealthBookErrorState());
+      emit(CreateSportsBookErrorState());
     });
   }
 
@@ -258,6 +289,20 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
       emit(GetMangaBookErrorState());
     });
   }
+  void getProgrammingBooks() {
+    emit(GetProgrammingLoadingState());
+    FirebaseFirestore.instance.collection('ProgrammingBooks').get().then((value) {
+      programmingBooks = [];
+      value.docs.forEach((element) {
+        programmingBooks.add(ProgrammingModel.fromJson(element.data()));
+      });
+      emit(GetProgrammingBookState());
+      print(programmingBooks.length);
+    }).catchError((error) {
+      emit(GetProgrammingBookErrorState());
+    });
+  }
+
 
   void getHealthBooks() {
     emit(GetHealthBookLoadingState());

@@ -1,5 +1,6 @@
 import 'package:book_app_store/modules/create_health_book/create_health.dart';
 import 'package:book_app_store/modules/create_manga_book/create_manga.dart';
+import 'package:book_app_store/modules/create_programming_book/create_programming_book.dart';
 import 'package:book_app_store/modules/create_science_book/create_science.dart';
 import 'package:book_app_store/modules/create_sports_book/create_sports.dart';
 import 'package:book_app_store/shared/components/components.dart';
@@ -41,6 +42,13 @@ class Home extends StatelessWidget {
                     leading: const Icon(Icons.book),
                     onTap: () {
                       navigateTo(context, CreateMangaBook());
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Create Programming Book'),
+                    leading: const Icon(Icons.book),
+                    onTap: () {
+                      navigateTo(context, CreateProgrammingBook());
                     },
                   ),
                   ListTile(

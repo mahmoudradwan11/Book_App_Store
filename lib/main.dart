@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
         ..getHealthBooks()
         ..getScienceBooks()
         ..getSportsBooks()
+        ..getProgrammingBooks()
         ..createDatabase()
         ..getUserData(),
       child: BlocConsumer<BookStoreCubit, BookStoreStates>(
