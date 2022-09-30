@@ -34,8 +34,8 @@ class Home extends StatelessWidget {
               child: ListView(
                 children: [
                   UserAccountsDrawerHeader(
-                    accountName: Text('${cubit.userModel!.name}'),
-                    accountEmail: Text('${cubit.userModel!.email}'),
+                    accountName: Text('${cubit.name}'),
+                    accountEmail: Text('${cubit.email}'),
                   ),
                   ListTile(
                     title: const Text('Create Manga Book'),
