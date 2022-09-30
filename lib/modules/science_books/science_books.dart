@@ -34,7 +34,8 @@ class ScienceBooks extends StatelessWidget {
 
   Widget builtScienceItem(ScienceModel model, context) => InkWell(
     onTap: (){
-      navigateTo(context,BookDetails(model: model,));
+      navigateTo(context,BookDetails(model: model,)
+      );
     },
     child: Padding(
       padding: const EdgeInsets.all(20.0),
@@ -58,72 +59,78 @@ class ScienceBooks extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                height: 145,
+                height: 153,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          '${model.bookName}',
-                          style: Theme.of(context).textTheme.bodyText1,
-                        ),
-                        Spacer(),
-                        IconButton(onPressed:(){
-                          BookStoreCubit.get(context).insertCart(
-                              name:model.bookName!,
-                              des: model.description!,
-                              price:model.price!,
-                              image:model.bookImage!,
-                              author:model.author!,
-                              year:model.year!
-                          );
-                          showToast('Added Successfully',ToastStates.SUCCESS);
-                        }, icon:const Icon(Icons.favorite_border))
-                      ],
+                    Text(
+                      '${model.bookName}',
+                      style:const TextStyle(fontFamily: 'Jannah',fontSize: 15,fontWeight: FontWeight.bold),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
                     ),
                     const SizedBox(
                       height: 5,
                     ),
+                    Row(
+                      children: [
+                        Container(
+                          color: defaultColor.shade300,
+                          child:Text('${model.year}'),
+                        ),
+                        const SizedBox(width: 20),
+                        Text(
+                          '${model.price}',
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        const SizedBox(width: 20),
+                        const Icon(Icons.star,color: Colors.yellow,),
+                        Text(
+                          '${model.rite}',
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height:5),
                     Text(
                       '${model.description}',
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style:  TextStyle(
+                        color: Colors.grey[800],
                       ),
-                      maxLines: 1,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      '${model.author}',
-                      style: const TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Container(
-                      color: defaultColor,
-                      child:Text(
-                        '${model.year}',
-                        style: const TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
+                    const Spacer(),
                     Row(
                       children: [
-                        Text('${model.price}'),
-                        Spacer(),
-                        Text('${model.rite}'),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          child: Text(
+                            '${model.author}',
+                            style:  TextStyle(
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
+                        IconButton(onPressed:(){
+                          BookStoreCubit.get(context).insertCart(
+                              name: model.bookName!,
+                              des: model.description!,
+                              price: model.price!,
+                              image: model.bookImage!,
+                              author: model.author!,
+                              year:model.year!
+                          );
+                          showToast('Added ', ToastStates.SUCCESS);
+                        }, icon:const Icon(Icons.favorite,color: Colors.cyan,)
+                        )
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
