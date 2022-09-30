@@ -124,6 +124,7 @@ class MangaBooks extends StatelessWidget {
                               author: model.author!,
                               year:model.year!
                           );
+                          showToast('Added',ToastStates.SUCCESS);
                         }, icon:const Icon(Icons.favorite,color: Colors.cyan,)
                         )
                       ],
