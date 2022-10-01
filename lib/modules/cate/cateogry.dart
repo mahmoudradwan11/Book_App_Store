@@ -48,7 +48,8 @@ class Category extends StatelessWidget {
                                 Text(
                                   'Manga Books',
                                   style: TextStyle(
-                                      color: Colors.white, fontFamily: 'Jannah'),
+                                      color: Colors.white,
+                                      fontFamily: 'Jannah'),
                                 )
                               ],
                             ),
@@ -70,18 +71,19 @@ class Category extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: const [
                                 Image(
-                                  image: AssetImage('images/health.png'),
-                                  //height: 100,
+                                  image: AssetImage('images/E.png'),
+                                  height: 113,
                                   //width:200,
                                   fit: BoxFit.contain,
                                 ),
                                 SizedBox(
-                                  height: 45,
+                                  height: 20,
                                 ),
                                 Text(
                                   'Health Books',
                                   style: TextStyle(
-                                      color: Colors.white, fontFamily: 'Jannah'),
+                                      color: Colors.white,
+                                      fontFamily: 'Jannah'),
                                 )
                               ],
                             ),
@@ -118,7 +120,8 @@ class Category extends StatelessWidget {
                                 Text(
                                   'Science Books',
                                   style: TextStyle(
-                                      color: Colors.white, fontFamily: 'Jannah'),
+                                      color: Colors.white,
+                                      fontFamily: 'Jannah'),
                                 )
                               ],
                             ),
@@ -140,18 +143,19 @@ class Category extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: const [
                                 Image(
-                                  image: AssetImage('images/Sports.png'),
-                                  //height: 100,
+                                  image: AssetImage('images/P.png'),
+                                  height: 105,
                                   //width:200,
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.cover,
                                 ),
                                 SizedBox(
-                                  height: 50,
+                                  height: 28,
                                 ),
                                 Text(
                                   'Sports Books',
                                   style: TextStyle(
-                                      color: Colors.white, fontFamily: 'Jannah'),
+                                      color: Colors.white,
+                                      fontFamily: 'Jannah'),
                                 )
                               ],
                             ),
