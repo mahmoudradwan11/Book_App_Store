@@ -1,6 +1,7 @@
 import 'package:book_app_store/modules/Health_Books/health_book.dart';
 import 'package:book_app_store/modules/Manga-Books/mango_books.dart';
 import 'package:book_app_store/modules/Sports_books/sports_books.dart';
+import 'package:book_app_store/modules/horror_books/horror_books.dart';
 import 'package:book_app_store/modules/programming_books/programming_books.dart';
 import 'package:book_app_store/modules/science_books/science_books.dart';
 import 'package:book_app_store/shared/components/components.dart';
@@ -167,37 +168,74 @@ class Category extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Align(
-                    alignment: AlignmentDirectional.topStart,
-                    child: InkWell(
-                      onTap: () {
-                        navigateTo(context, const ProgrammingBooks());
-                      },
-                      child: Container(
-                        height: 220,
-                        width: 155,
-                        color: defaultColor,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            Image(
-                              image: AssetImage('images/program.png'),
-                              //height: 140,
-                              //width:200,
-                              fit: BoxFit.contain,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {
+                            navigateTo(context, const ProgrammingBooks());
+                          },
+                          child: Container(
+                            height: 200,
+                           // width: 155,
+                            color: defaultColor,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: const [
+                                Image(
+                                  image: AssetImage('images/program.png'),
+                                  //height: 100,
+                                  width:double.infinity,
+                                  fit: BoxFit.contain,
+                                ),
+                                SizedBox(
+                                  height: 28,
+                                ),
+                                Text(
+                                  'Programming Books',
+                                  style: TextStyle(
+                                      color: Colors.white, fontFamily: 'Jannah'),
+                                )
+                              ],
                             ),
-                            SizedBox(
-                              height: 28,
-                            ),
-                            Text(
-                              'Programming Books',
-                              style: TextStyle(
-                                  color: Colors.white, fontFamily: 'Jannah'),
-                            )
-                          ],
+                          ),
                         ),
                       ),
-                    ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {
+                            navigateTo(context, const HorrorBooks());
+                          },
+                          child: Container(
+                            height: 200,
+                            color: defaultColor,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: const [
+                                Image(
+                                  image: AssetImage('images/horror.png'),
+                                  height: 116,
+                                  //width:200,
+                                  fit: BoxFit.cover,
+                                ),
+                                SizedBox(
+                                  height: 28,
+                                ),
+                                Text(
+                                  'Horror Books',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Jannah'),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ],
               ),

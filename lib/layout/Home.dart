@@ -1,4 +1,5 @@
 import 'package:book_app_store/modules/create_health_book/create_health.dart';
+import 'package:book_app_store/modules/create_horror_book/create_horror.dart';
 import 'package:book_app_store/modules/create_manga_book/create_manga.dart';
 import 'package:book_app_store/modules/create_programming_book/create_programming_book.dart';
 import 'package:book_app_store/modules/create_science_book/create_science.dart';
@@ -72,6 +73,13 @@ class Home extends StatelessWidget {
                     leading: const Icon(Icons.health_and_safety),
                     onTap: () {
                       navigateTo(context, CreateHealthBook());
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Create Horror Book'),
+                    leading: const Icon(Icons.dark_mode_outlined),
+                    onTap: () {
+                      navigateTo(context, CreateHorrorBook());
                     },
                   ),
                 ],

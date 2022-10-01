@@ -1,4 +1,5 @@
 import 'package:book_app_store/models/Health_model/health_model.dart';
+import 'package:book_app_store/models/Herror/herror_model.dart';
 import 'package:book_app_store/models/Manga_model/manga_model.dart';
 import 'package:book_app_store/models/Programing_model/Programing_model.dart';
 import 'package:book_app_store/models/Science-model/science_model.dart';
@@ -23,6 +24,7 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
   List<HealthModel> healthBooks = [];
   List<ScienceModel> scienceBooks = [];
   List<SportsModel> sportsBooks = [];
+  List<HorrorModel> horrorBooks = [];
   List<ProgrammingModel> programmingBooks = [];
   List<Widget> screens = [
     const Category(),
@@ -149,6 +151,35 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
       emit(CreateMangaBookState());
     }).catchError((error) {
       emit(CreateMangaBookErrorState());
+    });
+  }
+  void createHorrorBook({
+    required String bookName,
+    required String description,
+    String? link,
+    required String author,
+    required String year,
+    required String rite,
+    required String price,
+    String? bookImage,
+  }) {
+    emit(CreateHorrorBookLoadingState());
+    HorrorModel model = HorrorModel(
+        bookName: bookName,
+        bookImage: bookImage ?? '',
+        author: author,
+        link: link ?? '',
+        description: description,
+        year: year,
+        rite: rite,
+        price: price);
+    FirebaseFirestore.instance
+        .collection('HorrorBooks')
+        .add(model.toMap())
+        .then((value) {
+      emit(CreateHorrorBookState());
+    }).catchError((error) {
+      emit(CreateHorrorBookErrorState());
     });
   }
   void createProgrammingBook({
@@ -282,6 +313,19 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
       print(mangaBooks.length);
     }).catchError((error) {
       emit(GetMangaBookErrorState());
+    });
+  }
+  void getHorrorBooks() {
+    emit(GetHorrorBookLoadingState());
+    FirebaseFirestore.instance.collection('HorrorBooks').get().then((value) {
+      horrorBooks = [];
+      value.docs.forEach((element) {
+        horrorBooks.add(HorrorModel.fromJson(element.data()));
+      });
+      emit(GetHorrorBookState());
+      print(horrorBooks.length);
+    }).catchError((error) {
+      emit(GetHorrorBookErrorState());
     });
   }
   void getProgrammingBooks() {
