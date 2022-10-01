@@ -29,17 +29,12 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
     const CartBooks(),
   ];
   List<String> titles = ['Category', 'Cart'];
-  List<BottomNavigationBarItem> items = const [
-    BottomNavigationBarItem(
-        icon: Icon(
+  List<Widget> items = const [
+         Icon(
           Icons.category,
         ),
-        label: 'Category'),
-    BottomNavigationBarItem(
-        icon: Icon(
-          Icons.offline_share,
-        ),
-        label: 'Cart')
+
+    Icon(Icons.offline_share,),
   ];
   void changeIndex(int index) {
     screenIndex = index;
