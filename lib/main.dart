@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              duration: 2000,
+              duration: 3000,
               nextScreen: startWidget!,
               splashTransition: SplashTransition.scaleTransition,
               backgroundColor: Colors.white,
