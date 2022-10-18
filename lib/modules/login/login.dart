@@ -59,7 +59,8 @@ class LoginScreen extends StatelessWidget {
                       top: 120,
                       left: 20,
                       right: 20,
-                      child: Container(
+                      child: AnimatedContainer(
+                        duration: const Duration(seconds: 3),
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
