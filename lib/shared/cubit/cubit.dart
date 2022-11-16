@@ -49,7 +49,7 @@ class BookStoreCubit extends Cubit<BookStoreStates> {
   String? image;
 
   void getUserData() {
-    FirebaseFirestore.instance.collection('Users').doc(uId).get().then((value) {
+    FirebaseFirestore.instance.collection('Users').doc(UserID).get().then((value) {
       print(value.data());
       userModel = UserData.fromJson(value.data()!);
       name = userModel!.name;

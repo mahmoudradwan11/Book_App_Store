@@ -20,10 +20,10 @@ void main() async {
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
   ));
-  uId = CacheHelper.getData(key: 'uId');
-  print('UID = $uId');
+  UserID = CacheHelper.getData(key: 'uId');
+  print('USERID = $UserID');
   Widget? widget;
-  if (uId != null) {
+  if (UserID != null) {
     widget = const Home();
   } else {
     widget = LoginScreen();
